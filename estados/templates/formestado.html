@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Estado</title>
+</head>
+<body>
+
+    <h1>{% if estado %}Editar Estado{% else %}Cadastrar Estado{% endif %}</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" value="{% if estado %}{{ estado.nome }}{% endif %}">
+        <br>
+        <label for="sigla">Sigla</label>
+        <input type="text" name="sigla" id="sigla" value="{% if estado %}{{ estado.sigla }}{% endif %}">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+    
+    <a href="{% url 'listar_estados' %}">Voltar para a lista</a>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Estados</title>
+</head>
+<body>
+
+    <h1>Lista de Estados</h1>
+    <a href="{% url 'cadastrar_estado' %}">Cadastrar Novo Estado</a>
+    <ul>
+        {% for estado in estados %}
+        <li>
+            {{ estado.nome }} ({{ estado.sigla }})
+            <a href="{% url 'editar_estado' estado.id %}">Editar</a> |
+            <a href="{% url 'excluir_estado' estado.id %}">Excluir</a>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    
+</body>
+</html>
